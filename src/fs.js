@@ -23,3 +23,16 @@ fs.readFile('./src/index.js', 'utf8', function(err, dataStr) {
     if(!dataStr) return console.log('读取失败', err.message); 
     console.log('读取成功', dataStr);
 })
+
+
+fs.readFile('./src/old.txt', 'utf8', function(err, dataStr) {
+    if(dataStr) {
+        let str = dataStr.replace(/=/g, ':').replace(/,/g, '\r\n');
+        fs.writeFile('./src/new.txt', str, 'utf8', function(err) {
+            if(!err) return console.log('写入成功');
+            console.log('写入失败', err.message);
+        })
+    }else {
+        console.log('读取失败', err.message);
+    }
+})
