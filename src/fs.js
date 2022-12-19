@@ -6,12 +6,12 @@ const fs = require('fs');
 //参数4 写入文件的回调函数
 fs.writeFile('./src/index.js', "console.log('这是我写入的内容');", function(err) {
     // 写入成功会覆盖文件内原本的内容 
-    if(err === null) return console.log('写入成功', err);
+    if(!err) return console.log('写入成功', err);
     console.log('写入失败', err.message);
 })
 fs.writeFile('./src/create.js', "console.log('这是我创建的文件');", function(err) {
     // 写入一个错误路径，可能会创建文件并写入， (也有可能写入失败,例如：'m: ./src/create.js' 根本不存在m盘)
-    if(err === null) return console.log('写入成功', err);
+    if(!err) return console.log('写入成功', err);
     console.log('写入失败', err.message);
 })
 
