@@ -25,10 +25,10 @@ fs.readFile('./src/index.js', 'utf8', function(err, dataStr) {
 })
 
 // __dirname表示当前文件所处的目录
-fs.readFile(__dirname + '/old.txt', 'utf8', function(err, dataStr) {
+fs.readFile(__dirname + '/assets/old.txt', 'utf8', function(err, dataStr) {
     if(dataStr) {
         let str = dataStr.replace(/=/g, ':').replace(/,/g, '\r\n');
-        fs.writeFile(__dirname + '/new.txt', str, 'utf8', function(err) {
+        fs.writeFile(__dirname + '/assets/new.txt', str, 'utf8', function(err) {
             if(!err) return console.log('写入成功');
             console.log('写入失败', err.message);
         })
