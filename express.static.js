@@ -9,5 +9,5 @@ app.use(express.static('./src/clock-test/clock'));
 app.use('/public',express.static('./src/clock-test'));
 
 app.listen(80, () => {
-    console.log('express server runing at 127.0.0.1');
+    console.log('express server runing at http://127.0.0.1');
 })
