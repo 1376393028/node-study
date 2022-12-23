@@ -1,8 +1,9 @@
 {
   "name": "node-study",
   "version": "1.0.0",
-  "main": "main.js",
+  "main": "index.js",
   "dependencies": {
-    "dayjs": "^1.11.7"
+    "dayjs": "^1.11.7",
+    "express": "^4.17.1"
   }
 }
