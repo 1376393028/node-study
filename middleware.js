@@ -31,7 +31,7 @@ const mw2 = (req, res, next) => {
     next();
 }
 
-// 中间件一定要在路由之前注册
+// 中间件一定要在路由之前注册,除了错误级中间件
 // 客户端发送过来的请求，可以连续调用多个中间件进行处理
 // 执行完中间件，不要忘记调用next()函数
 // next()后不要再写额外的代码
@@ -48,7 +48,23 @@ app.get('/user', [mw1, mw2], (req, res) => {
 
 app.get('/err', (req, res) => {
     throw new Error('服务器发生错误！');
-    res.send('home page');
+    res.send('err page');
+})
+
+// json 中间件
+app.use(express.json());
+app.post('/json', (req, res) => {
+    // 默认情况下，如果不配置解析表单数据的中间件，则 req.body 默认等于 undefined
+    console.log(req.body);
+    res.send('ok');
+})
+
+// urlencoded 中间件
+app.use(express.urlencoded({ extended: false }));
+app.post('/urlencoded', (req, res) => {
+    // 默认情况下，如果不配置解析表单数据的中间件，则 req.body 默认等于 {}
+    console.log(req.body);
+    res.send('ok');
 })
 
 // 错误级中间件必须在路由之后 
