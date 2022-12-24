@@ -62,7 +62,7 @@ app.post('/json', (req, res) => {
 // urlencoded 中间件
 app.use(express.urlencoded({ extended: false }));
 app.post('/urlencoded', (req, res) => {
-    // 默认情况下，如果不配置解析表单数据的中间件，则 req.body 默认等于 {}
+    // 默认情况下，如果不配置解析表单数据的中间件，则 req.body 默认等于 undefined
     console.log(req.body);
     res.send('ok');
 })
