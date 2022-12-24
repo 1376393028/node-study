@@ -19,4 +19,12 @@ router.post('/post', (req, res) => {
     })
 })
 
+router.delete('/delete', (req, res) => {
+    res.send({
+        status: 0, // 0 表示处理成功 1 表示处理失败
+        msg: 'DELETE 请求成功',
+        data: '删除成功'
+    })
+})
+
 module.exports = router;
