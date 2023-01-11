@@ -11,6 +11,7 @@
     <button id="get">GET</button>
     <button id="post">POST</button>
     <button id="delete">DELETE</button>
+    <button id="jsonp">JSONP</button>
     <script>
         $(function() {
             $('#get').on('click', function() {
@@ -37,6 +38,17 @@
                 $.ajax({
                     type: 'DELETE',
                     url: 'http://127.0.0.1/api/delete',
+                    success: (res) => {
+                        console.log(res);
+                    }
+                })
+            })
+
+            $('#jsonp').on('click', function() {
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://127.0.0.1/api/jsonp',
+                    dataType: 'jsonp',
                     success: (res) => {
                         console.log(res);
                     }
